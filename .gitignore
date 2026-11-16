@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Data and models: never commit these (large files; rebuild them with the scripts)
+data/raw/
+data/processed/
+models/
+*.parquet
+mlruns/
+
+# Secrets: never commit these
+.env
+.env.*
+.aws/
+*.pem
+
+# macOS / editors
+.DS_Store
+.vscode/
+.idea/
