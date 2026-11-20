@@ -13,7 +13,7 @@ dependencies = [
     "seaborn>=0.13",
     "scikit-learn>=1.5",
     "lightgbm>=4.5",
-    "tensorflow>=2.18",
+    "torch>=2.6",
 ]
 
 [dependency-groups]
@@ -22,6 +22,17 @@ dev = [
     "ruff>=0.6",
     "ipykernel>=6.29",
 ]
+
+# PyTorch wheels: on macOS the normal PyPI wheel already includes Apple GPU (MPS)
+# support. On Linux (the Docker image) the PyPI wheel bundles NVIDIA CUDA libraries
+# (several GB), so Linux installs come from PyTorch's CPU-only index instead.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [build-system]
 requires = ["hatchling"]

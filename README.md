@@ -10,7 +10,7 @@ then uses those forecasts to simulate pricing experiments in a two-sided marketp
 
 - [ ] **Data pipeline:** download monthly trip files, aggregate Lyft trips to a zone-by-hour table with DuckDB
 - [ ] **Exploration:** daily and weekly seasonality, differences between zones, anomalies
-- [ ] **Models:** seasonal-naive baseline, LightGBM, Keras LSTM, compared on WAPE and MAE
+- [ ] **Models:** seasonal-naive baseline, LightGBM, PyTorch LSTM, compared on WAPE and MAE
 - [ ] **Serving:** FastAPI prediction service in Docker
 - [ ] **Experiment simulator:** power analysis, rider-level A/B test vs. switchback test under marketplace interference
 - [ ] **Deployment:** model files in S3, service on AWS ECS Fargate, and on a local Kubernetes cluster (kind)
@@ -24,7 +24,7 @@ flowchart LR
     C --> D[Features<br/>calendar, lags]
     D --> E1[Seasonal naive]
     D --> E2[LightGBM]
-    D --> E3[Keras LSTM]
+    D --> E3[PyTorch LSTM]
     E1 & E2 & E3 --> F[Evaluation<br/>WAPE, MAE]
     E3 --> G[FastAPI service<br/>Docker]
     C --> H[Experiment simulator<br/>A/B vs. switchback]

@@ -13,7 +13,7 @@ flowchart TD
     E -->|features.py| F["calendar + lag features"]
     F --> G1["Seasonal naive<br/>trips at same hour last week"]
     F --> G2["LightGBM"]
-    F --> G3["Keras LSTM<br/>past 168 hours -> next hour"]
+    F --> G3["PyTorch LSTM<br/>past 168 hours -> next hour"]
     G1 & G2 & G3 -->|metrics.py| H["WAPE and MAE on the test period"]
 ```
 

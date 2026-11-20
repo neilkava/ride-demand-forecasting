@@ -10,9 +10,10 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Data and models: never commit these (large files; rebuild them with the scripts)
+# Leading "/" = only the top-level folder, not src/ridecast/models/
 data/raw/
 data/processed/
-models/
+/models/
 *.parquet
 mlruns/
 
